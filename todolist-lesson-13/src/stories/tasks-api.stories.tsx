@@ -31,8 +31,8 @@ export const CreateTask = () => {
 export const DeleteTask = () => {
     const [state, setState] = useState<any>(null)
     useEffect(() => {
-        const todolistId = 'd76aceb4-d89e-4684-955e-d83ff83bc77b'
-        const taskId = '7c08932e-6f86-4fbd-af65-222ef9766c6a'
+        const todolistId = '2bf7cd4e-a575-42fc-8ffd-de4ca96891be'
+        const taskId = 'fabccde5-53ff-4677-a085-e7fa69ee967f'
         taskAPI.deleteTask(todolistId, taskId)
             .then(res => {
                 setState(res.data)
@@ -44,9 +44,15 @@ export const DeleteTask = () => {
 export const UpdateTaskTitle = () => {
     const [state, setState] = useState<any>(null)
     useEffect(() => {
-        const todolistId = 'd76aceb4-d89e-4684-955e-d83ff83bc77b'
-        const taskId = '7c08932e-6f86-4fbd-af65-222ef9766c6a'
-        taskAPI.updateTask(todolistId, taskId, 'SOME NEW TITLE>>>>>>>>>>>>').then((res) => {
+        const todolistId = '2bf7cd4e-a575-42fc-8ffd-de4ca96891be'
+        const taskId = '5ca196fd-aa7c-49d7-b522-c49543ef1ec7'
+        taskAPI.updateTask(todolistId, taskId, {
+            title: 'SOME NEW TITLE>>>>>>>>>>>>',
+            description: 'd1',
+            status: 2,
+            priority: 2,
+            startDate: '',
+            deadline: ''}).then((res) => {
             setState(res.data)
         })
     }, [])
