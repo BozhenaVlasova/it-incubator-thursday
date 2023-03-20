@@ -9,6 +9,7 @@ import Checkbox from '@mui/material/Checkbox';
 type TaskPropsType = {
     task: TaskType
     todolistId: string
+    disabled: boolean
     changeTaskStatus: (id: string, status: TaskStatuses, todolistId: string) => void
     changeTaskTitle: (taskId: string, newTitle: string, todolistId: string) => void
     removeTask: (taskId: string, todolistId: string) => void
@@ -30,10 +31,11 @@ export const Task = React.memo((props: TaskPropsType) => {
             checked={props.task.status === TaskStatuses.Completed}
             color="primary"
             onChange={onChangeHandler}
+            disabled={props.disabled}
         />
 
-        <EditableSpan value={props.task.title} onChange={onTitleChangeHandler}/>
-        <IconButton onClick={onClickHandler}>
+        <EditableSpan value={props.task.title} onChange={onTitleChangeHandler} disabled={props.disabled}/>
+        <IconButton onClick={onClickHandler} disabled={props.disabled}>
             <Delete/>
         </IconButton>
     </div>
